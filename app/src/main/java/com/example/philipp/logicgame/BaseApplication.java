@@ -9,7 +9,6 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        RealmConfiguration config = new RealmConfiguration.Builder(getApplicationContext()).build();
-        Realm.setDefaultConfiguration(config);
+        Realm.init(this);
     }
 }
