@@ -27,6 +27,7 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         buildConfigField "boolean", "TESTING", "false"
+        buildConfigField "long", "DATABASE_VERSION", "1"
     }
     buildTypes {
         release {
