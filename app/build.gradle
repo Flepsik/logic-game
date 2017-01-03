@@ -12,8 +12,9 @@ buildscript {
 }
 
 android {
+
     compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    buildToolsVersion "${project.SUPPORT_VERSION}"
     defaultConfig {
         applicationId "com.flepsik.game.logic"
         minSdkVersion 19
@@ -24,33 +25,30 @@ android {
 
         buildConfigField "boolean", "TESTING", "false"
     }
-
     buildTypes {
         release {
             shrinkResources true
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-
         debug {
             shrinkResources false
             minifyEnabled false
+            buildConfigField "boolean", "TESTING", "true"
         }
     }
-
     flavorDimensions "version"
     productFlavors {
-        priv {
+        free {
             dimension "version"
 
             applicationId "com.flepsik.game.logic.private"
-            buildConfigField "boolean", "TESTING", "true"
         }
-        all {
+        paid {
             dimension "version"
+            buildConfigField "boolean", "PAID", "true"
         }
     }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -58,12 +56,12 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'io.reactivex:rxjava:1.1.6'
-    compile "com.android.support:recyclerview-v7:${project.SUPPORT_VERSION}"
-    compile "com.android.support:design:${project.SUPPORT_VERSION}"
-    compile "com.android.support:cardview-v7:${project.SUPPORT_VERSION}"
+    compile ("com.android.support:recyclerview-v7:${project.SUPPORT_VERSION}")
+    compile ("com.android.support:design:${project.SUPPORT_VERSION}")
+    compile ("com.android.support:cardview-v7:${project.SUPPORT_VERSION}")
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'io.realm:realm-android:0.83.0+'
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
