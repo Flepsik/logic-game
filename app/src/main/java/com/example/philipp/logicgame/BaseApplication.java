@@ -18,8 +18,8 @@ public class BaseApplication extends Application {
         Realm.init(this);
         RealmConfiguration configuration = new RealmConfiguration.Builder()
                 .schemaVersion(BuildConfig.DATABASE_VERSION)
-                .initialData(new InitialData())
-                .migration(new RealmMigration())
+                .initialData(new DatabaseUtils.InitialData())
+                .migration(new DatabaseUtils.RealmMigration())
                 .build();
         Realm.setDefaultConfiguration(configuration);
         Realm.getInstance(configuration);
