@@ -24,12 +24,12 @@ buildscript {
 }
 
 android {
-
     compileSdkVersion 25
     buildToolsVersion "${project.SUPPORT_VERSION}"
+
     defaultConfig {
         applicationId "com.flepsik.game.logic"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -38,6 +38,7 @@ android {
         buildConfigField "boolean", "TESTING", "false"
         buildConfigField "long", "DATABASE_VERSION", "1"
     }
+
     buildTypes {
         release {
             shrinkResources true
@@ -50,6 +51,7 @@ android {
             buildConfigField "boolean", "TESTING", "true"
         }
     }
+
     flavorDimensions "version"
     productFlavors {
         free {
@@ -62,9 +64,14 @@ android {
             buildConfigField "boolean", "PAID", "true"
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dexOptions {
+        incremental true
     }
 }
 
@@ -79,7 +86,6 @@ dependencies {
     compile ("com.android.support:recyclerview-v7:${project.SUPPORT_VERSION}")
     compile ("com.android.support:design:${project.SUPPORT_VERSION}")
     compile ("com.android.support:cardview-v7:${project.SUPPORT_VERSION}")
-
     //dagger
     compile 'com.google.dagger:dagger:2.7'
     apt 'com.google.dagger:dagger-compiler:2.7'
