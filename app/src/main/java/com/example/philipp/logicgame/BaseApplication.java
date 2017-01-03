@@ -2,8 +2,9 @@ package com.example.philipp.logicgame;
 
 import android.app.Application;
 
-import java.io.FileNotFoundException;
+import com.crashlytics.android.Crashlytics;
 
+import io.fabric.sdk.android.Fabric;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
@@ -11,6 +12,7 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        Fabric.with(new Fabric.Builder(this).kits(new Crashlytics()).debuggable(true).build());
         initDatabase();
     }
 
