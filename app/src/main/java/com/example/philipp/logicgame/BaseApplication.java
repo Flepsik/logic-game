@@ -14,7 +14,7 @@ public class BaseApplication extends Application {
         initDatabase();
     }
 
-    private void initDatabase() {
+    protected void initDatabase() {
         Realm.init(this);
         RealmConfiguration configuration = new RealmConfiguration.Builder()
                 .schemaVersion(BuildConfig.DATABASE_VERSION)
