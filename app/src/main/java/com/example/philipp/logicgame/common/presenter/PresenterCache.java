@@ -1,4 +1,4 @@
-package com.example.philipp.logicgame;
+package com.example.philipp.logicgame.common.presenter;
 
 import android.support.v4.util.SimpleArrayMap;
 
@@ -32,6 +32,7 @@ public class PresenterCache {
 
         if (presenter == null) {
             presenter = presenterFactory.create();
+            presenters.put(tag, presenter);
         }
         return presenter;
     }

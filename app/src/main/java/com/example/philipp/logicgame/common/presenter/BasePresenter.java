@@ -1,10 +1,10 @@
-package com.example.philipp.logicgame;
+package com.example.philipp.logicgame.common.presenter;
 
 import android.support.annotation.NonNull;
 
 import java.lang.ref.WeakReference;
 
-public abstract class BasePresenter<View> implements Presenter<View> {
+public abstract class BasePresenter<View extends BindView> implements Presenter<View> {
     private WeakReference<View> view;
 
     public void bindView(@NonNull View view) {

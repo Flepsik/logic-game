@@ -1,4 +1,6 @@
 package com.example.philipp.logicgame.main_menu;
 
-public interface MainMenuView {
+import com.example.philipp.logicgame.common.presenter.BindView;
+
+public interface MainMenuView extends BindView {
 }

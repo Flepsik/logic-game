@@ -1,4 +1,4 @@
-package com.example.philipp.logicgame;
+package com.example.philipp.logicgame.common;
 
 import android.os.Bundle;
 import android.support.annotation.IdRes;
@@ -8,6 +8,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+
+import com.example.philipp.logicgame.R;
 
 public abstract class BaseFragmentActivity extends AppCompatActivity {
     @LayoutRes
