@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 
 import java.lang.ref.WeakReference;
 
-public abstract class BasePresenter<View> {
+public abstract class BasePresenter<View> implements Presenter<View> {
     private WeakReference<View> view;
 
     public void bindView(@NonNull View view) {
@@ -24,7 +24,7 @@ public abstract class BasePresenter<View> {
         }
     }
 
-    protected abstract void onDestroy();
+    public abstract void onDestroy();
 
-    protected abstract void updateView();
+    public abstract void updateView();
 }
