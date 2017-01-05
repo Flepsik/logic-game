@@ -8,7 +8,7 @@ import io.fabric.sdk.android.Fabric;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
-public class BaseApplication extends Application {
+public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
